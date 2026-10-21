@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: ${OMS_DB_URL:jdbc:postgresql://127.0.0.1:5432/internal_oms}
+    username: ${OMS_DB_USERNAME:oms}
+    password: ${OMS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  h2:
+    console:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: false
+
+oms:
+  migration:
+    h2-to-postgres:
+      enabled: ${OMS_MIGRATE_H2:false}
+      source-url: ${OMS_H2_SOURCE_URL:jdbc:h2:file:./data/oms;MODE=MySQL;DATABASE_TO_LOWER=TRUE}
+      source-username: ${OMS_H2_SOURCE_USERNAME:sa}
+      source-password: ${OMS_H2_SOURCE_PASSWORD:}

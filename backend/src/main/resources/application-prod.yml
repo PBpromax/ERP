@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: ${OMS_DB_URL:jdbc:postgresql://127.0.0.1:5432/internal_oms}
+    username: ${OMS_DB_USERNAME:oms}
+    password: ${OMS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: false
+
+oms:
+  upload-dir: ${OMS_UPLOAD_DIR:/data/oms/uploads}

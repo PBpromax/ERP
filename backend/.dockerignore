@@ -1,0 +1,6 @@
+data/
+uploads/
+outputs/
+.env*
+*.log
+src/

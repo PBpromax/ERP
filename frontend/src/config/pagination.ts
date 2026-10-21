@@ -1,0 +1,2 @@
+export const DEFAULT_PAGE_SIZE = 100
+export const PAGE_SIZE_OPTIONS = [DEFAULT_PAGE_SIZE]

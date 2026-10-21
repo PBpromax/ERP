@@ -1,0 +1,12 @@
+[
+  {
+    "code": "MAT-BS-001",
+    "category": "测试类别",
+    "name": "测试原料一"
+  },
+  {
+    "code": "MAT-TEST-002",
+    "category": "测试类别",
+    "name": "测试原料二"
+  }
+]

@@ -1,0 +1,52 @@
+server:
+  port: 8081
+  compression:
+    enabled: true
+    min-response-size: 1KB
+    mime-types: application/json,application/javascript,text/html,text/xml,text/plain,text/css,text/javascript
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: internal-oms
+  profiles:
+    active: postgres
+  datasource:
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 3000
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+  mvc:
+    servlet:
+      load-on-startup: 1
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 50MB
+
+oms:
+  token-secret: ${OMS_TOKEN_SECRET}
+  upload-dir: ./uploads
+  migration:
+    legacy-backfills-enabled: ${OMS_LEGACY_BACKFILLS_ENABLED:false}
+  performance:
+    slow-request-ms: ${OMS_SLOW_REQUEST_MS:100}
+  field-permission:
+    money-fields: unitPrice,totalAmount,amount,costPrice,stockAmount,taxAmount,receivableAmount,invoicedAmount,receivedAmount,arrearsAmount,lastPurchasePrice,paidAmount
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
